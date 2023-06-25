@@ -70,17 +70,23 @@ import ReactDOM from "react-dom/client";
 // root.render(group)
 
 // Listing 2.8
-class Link extends React.Component {
-    render() {
-        return React.createElement("p", null,
-            React.createElement("a", {href: this.props.uri}, this.props.children)
-        )
-    }
-}
-const root = ReactDOM.createRoot(document.getElementById("root"))
-const group = React.createElement(React.Fragment, null,
-    React.createElement(Link, {uri: "//reactjs.org"}, React.createElement("strong", null, "React")),
-    React.createElement(Link, {uri: "vuejs.org"}, "Vue"),
-    React.createElement(Link, {uri: "angular.io"}, "Angular")
-)
-root.render(group)
+// class Link extends React.Component {
+//     render() {
+//         return React.createElement("p", null,
+//             React.createElement("a", {href: this.props.uri}, this.props.children)
+//         )
+//     }
+// }
+// const root = ReactDOM.createRoot(document.getElementById("root"))
+// const group = React.createElement(React.Fragment, null,
+//     React.createElement(Link, {uri: "//reactjs.org"}, React.createElement("strong", null, "React")),
+//     React.createElement(Link, {uri: "vuejs.org"}, "Vue"),
+//     React.createElement(Link, {uri: "angular.io"}, "Angular")
+// )
+// root.render(group)
+
+// Listing 2.10
+import {createRoot} from "react-dom/client"
+import App from "./App"
+
+createRoot(document.getElementById("root")).render(React.createElement(App))
