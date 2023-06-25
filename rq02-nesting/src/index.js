@@ -51,20 +51,36 @@ import ReactDOM from "react-dom/client";
 // ReactDOM.createRoot(domElement).render(group);
 
 // Listing 2.7
+// class Link extends React.Component {
+//     render() {
+//         return React.createElement("p", null,
+//             React.createElement("a", {href: this.props.uri}, 
+//                 `Read more about ${this.props.framework}`
+//             )
+//         )
+//     }
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById("root"))
+// const group = React.createElement("p",null,
+//     React.createElement(Link, {framework: "React", uri: "//reactjs.org"}),
+//     React.createElement(Link, {framework: "Vue", uri: "//vuejs.org"}),
+//     React.createElement(Link, {framework: "Angular", uri: "//angular.io"})
+// )
+// root.render(group)
+
+// Listing 2.8
 class Link extends React.Component {
     render() {
         return React.createElement("p", null,
-            React.createElement("a", {href: this.props.uri}, 
-                `Read more about ${this.props.framework}`
-            )
+            React.createElement("a", {href: this.props.uri}, this.props.children)
         )
     }
 }
-
 const root = ReactDOM.createRoot(document.getElementById("root"))
-const group = React.createElement("p",null,
-    React.createElement(Link, {framework: "React", uri: "//reactjs.org"}),
-    React.createElement(Link, {framework: "Vue", uri: "//vuejs.org"}),
-    React.createElement(Link, {framework: "Angular", uri: "//angular.io"})
+const group = React.createElement(React.Fragment, null,
+    React.createElement(Link, {uri: "//reactjs.org"}, React.createElement("strong", null, "React")),
+    React.createElement(Link, {uri: "vuejs.org"}, "Vue"),
+    React.createElement(Link, {uri: "angular.io"}, "Angular")
 )
 root.render(group)
