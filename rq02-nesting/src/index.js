@@ -22,14 +22,49 @@ import ReactDOM from "react-dom/client";
 // ReactDOM.createRoot(domElement).render(group);
 
 // Listing 2.5
+// class Link extends React.Component {
+//     render() {
+//         return React.createElement("p", null,
+//             React.createElement("a", {href: "reactjs.org"}, "Read more about React")
+//         )
+//     }
+// }
+// const group = React.createElement(React.Fragment, null,    
+//     React.createElement(Link), React.createElement(Link), React.createElement(Link),)
+// const domElement = document.getElementById("root");
+// ReactDOM.createRoot(domElement).render(group);
+
+// Listing 2.6
+// class Link extends React.Component {
+//     render() {
+//         return React.createElement("p", null,
+//             React.createElement("a", {href: "reactjs.org"}, `Read more about ${this.props.framework}`)
+//         )
+//     }
+// }
+
+// const group = React.createElement(React.Fragment, null,    
+//     React.createElement(Link, {framework: "React"}), 
+//     React.createElement(Link, {framework: "Vue"}),
+//     React.createElement(Link, {framework: "Angular"}))
+// const domElement = document.getElementById("root");
+// ReactDOM.createRoot(domElement).render(group);
+
+// Listing 2.7
 class Link extends React.Component {
     render() {
         return React.createElement("p", null,
-            React.createElement("a", {href: "reactjs.org"}, "Read more about React")
+            React.createElement("a", {href: this.props.uri}, 
+                `Read more about ${this.props.framework}`
+            )
         )
     }
 }
-const group = React.createElement(React.Fragment, null,    
-    React.createElement(Link), React.createElement(Link), React.createElement(Link),)
-const domElement = document.getElementById("root");
-ReactDOM.createRoot(domElement).render(group);
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+const group = React.createElement("p",null,
+    React.createElement(Link, {framework: "React", uri: "//reactjs.org"}),
+    React.createElement(Link, {framework: "Vue", uri: "//vuejs.org"}),
+    React.createElement(Link, {framework: "Angular", uri: "//angular.io"})
+)
+root.render(group)
