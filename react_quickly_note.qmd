@@ -1,0 +1,53 @@
+---
+title: React Quickly Note
+---
+
+## Chapter 2
+
+See `2.1 Create a new React app` for `npm` command.
+
+```
+Success! Created name-of-app at <folder>
+Inside that directory, you can run several commands:
+ 
+  npm start
+    Starts the development server.
+ 
+  npm run build
+    Bundles the app into static files for production.
+ 
+  npm test
+    Starts the test runner.
+ 
+  npm run eject
+    Removes this tool and copies build dependencies, configuration
+    files and scripts into the app directory. If you do this, you
+    can't go back!
+ 
+We suggest that you begin by typing:
+ 
+  cd name-of-app
+  npm start
+ 
+Happy hacking!
+```
+
+## Chapter 3
+
+`rq03-jsx-links`
+
+`3.2.3 Multiline JSX objects`
+
+`3.2.4 Outputting variables in JSX`
+
+Use curly braces to output variable.
+```js
+class DateTimeNow extends React.Component {
+  render() {
+    const dateTimeNow = new Date().toLocaleString()
+    return <span>Current date and time is {dateTimeNow}.</span>
+  }
+}
+```
+
+`3.2.5 Working with properties in JSX`

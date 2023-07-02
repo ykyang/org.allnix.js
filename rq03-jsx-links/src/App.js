@@ -12,8 +12,13 @@ class Link extends Component {
 
 class App extends Component {
   render() {
+    const world = <em>World</em>
+
     return (
       <Fragment>
+        <h1>Hello {world}!</h1>
+        <p>Today is {new Date(Date.now()).toLocaleString()}.</p>
+
         <Link />
         <Link />
         <Link />
