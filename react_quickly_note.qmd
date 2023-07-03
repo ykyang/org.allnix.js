@@ -216,3 +216,11 @@ Notice `{" "}` at the end of lines.
 
 `3.4.9 data- attributes`
 
+## 4 Functional components
+
+the functional part refers to the component definition itself being a JavaScript function rather than a JavaScript class.
+
+when React Hooks came in React 16.8, functional components were suddenly as powerful
+
+`4.1 The shorter way to write React components`
+
