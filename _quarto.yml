@@ -7,11 +7,11 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - react_quickly_note.qmd
       - about.qmd
   sidebar:
     style: docked
     contents:
+      - learn_javascript.qmd
       - react_quickly_note.qmd
 
 format:
@@ -19,6 +19,10 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    # https://quarto.org/docs/output-formats/html-code.html#code-filename
+    code-block-border-left: false
+    code-block-bg: true
+    highlight-style: pygments
 
 
 

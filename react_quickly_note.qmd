@@ -4,9 +4,13 @@ title: React Quickly Note
 
 ## Chapter 2
 
-See `2.1 Create a new React app` for `npm` command.
+`2.1 Create a new React app`
 
-```
+[See React Quickly](https://livebook.manning.com/book/react-quickly-second-edition/chapter-2/v-13/21){target="_blank"}
+
+```default
+npx create-react-app name-of-app
+
 Success! Created name-of-app at <folder>
 Inside that directory, you can run several commands:
  
@@ -34,7 +38,10 @@ Happy hacking!
 
 ## Chapter 3
 
-`rq03-jsx-links`
+
+```sh
+npx create-react-app rq03-jsx-links --template rq03-jsx-links
+```
 
 `3.2.3 Multiline JSX objects`
 
@@ -51,3 +58,161 @@ class DateTimeNow extends React.Component {
 ```
 
 `3.2.5 Working with properties in JSX`
+
+Render properties of an object
+```js
+return (
+  <Post
+    id={post.id}
+    title={post.title}
+    content={post.content}
+  />
+);
+```
+Render all properties of an object
+```js
+return <Post {...post} />;
+```
+
+```sh
+npx create-react-app rq03-children --template rq03-children
+```
+
+`3.2.6 Branching in JSX`
+
+There are only six falsy values:
+
+* false
+* 0
+* "" (empty string)
+* null
+* Undefined
+* NaN (not a number)
+
+
+```sh
+npx create-react-app rq03-cart-single --template rq03-cart-single
+```
+
+```sh
+npx create-react-app rq03-cart-multi --template rq03-cart-multi
+```
+
+`3.2.7 Comments in JSX`
+
+`3.2.8 Lists of JSX objects`
+
+```bash
+npx create-react-app rq03-naive-select --template rq03-naive-select
+```
+
+Missing ID
+
+```bash
+npx create-react-app rq03-correct-select --template rq03-correct-select
+```
+
+::: {.callout-note}
+Keys are local to the individual array, ...
+:::
+
+`3.2.9 Fragments in JSX`
+
+Short syntax to replace `<Fragment>`
+
+```javascriptreact
+return (
+  <>
+    <h1>Hello and welcome</h1>
+    <a href="/blog">Go to the blog</a>
+  </>
+);
+```
+
+```bash
+npx create-react-app rq03-dog-breeds --template rq03-dog-breeds
+```
+
+`3.3 How to transpile JSX`
+
+`3.4 React and JSX gotchas`
+
+`3.4.1 Self-closing elements`
+
+`3.4.2 Special characters`
+
+`3.4.3 String conversion`
+
+See [Table 3.2.](https://livebook.manning.com/book/react-quickly-second-edition/chapter-3/v-13/312){target=_blank}
+
+| Type                     | Output      |
+|--------------------------|-------------|
+|"string"                  | "string"    |
+| ""                       | ""          |
+| 3.4                      | "3.4"       |
+| 0                        | "0"         |
+| NaN                      | "NaN"       |
+| Number.POSITIVE_INFINITY | "Infinity"  |
+| Number.NEGATIVE_INFINITY | "-Infinity" |
+| true                     | "true"      |
+| false                    | ""          |
+| undefined                | ""          |
+| null                     | ""          |
+
+: React rendering different types
+
+`3.4.4 Style attribute`
+
+double curly braces ({{...}}).  The double braces are needed because one set is for JSX and the other is for the JavaScript object literal.
+
+```javascriptreact
+const smallFontSize = {fontSize: '10pt'}
+<input style={smallFontSize} />
+```
+or
+```javascriptreact
+<input style={{fontSize: '10pt'}} />
+```
+
+`3.4.5 Reserved names: class and for`
+
+Cannot use `class` or `for`, use
+
+```javascriptreact
+<p className="hidden">   </p>
+
+<input type="checkbox" id={this.props.id} value="hasCorgi" />
+<label htmlFor={this.props.id}>Corgi?</label>
+```
+
+`3.4.6 Multi-word attributes`
+
+Any attribute with more than one English word in it, is renamed to camelCase style naming.
+
+`3.4.7 Boolean attribute values`
+
+```javascriptreact
+<input disabled={false} />
+
+<Alert isError>We are completely out of ice cream</Alert> // isError is true
+<Alert>We are almost out of cookies</Alert>               // isError is false
+```
+
+```bash
+npx create-react-app rq03-alert --template rq03-alert
+```
+
+`3.4.8 White space`
+
+Notice `{" "}` at the end of lines.
+
+```javascriptreact
+<h1>
+  All{" "}
+  <em>corgis</em>{" "}
+  are awesome
+</h1>
+```
+
+`3.4.9 data- attributes`
+
