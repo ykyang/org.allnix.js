@@ -218,9 +218,149 @@ Notice `{" "}` at the end of lines.
 
 ## 4 Functional components
 
+[Chpater 4 source code](https://reactquickly.dev/browse/ch04){target=_blank}
+
 the functional part refers to the component definition itself being a JavaScript function rather than a JavaScript class.
 
 when React Hooks came in React 16.8, functional components were suddenly as powerful
 
 `4.1 The shorter way to write React components`
 
+`4.1.1 An example application`
+
+```bash
+npx create-react-app rq04-menu-class --template rq04-menu-class
+```
+
+```bash
+npx create-react-app rq04-menu-function --template rq04-menu-function
+```
+
+`4.1.2 Destructuring properties`
+
+```javascript
+const someObject = { a: 1, b: 2, c: 3 };
+const { a, b } = someObject;
+
+function log({ message, level }) {
+  console.log(level.toUpperCase(), "Message:", message);
+}
+log({ message: "Unknown product", level: "error" });
+```
+
+```javascriptreact
+function MenuItem({ href, label }) {
+  return (
+    <li className="menu-item">
+      <a className="menu-link" href={href}>
+        {label}
+      </a>
+    </li>
+  );
+}
+```
+
+```bash
+npx create-react-app rq04-menu-destruct --template rq04-menu-destruct
+```
+
+`4.1.3 Default values`
+
+```javascriptreact
+function MenuItem({ label, href, target = "_self" }) {
+  return (
+    <li className="menu-item">
+      <a className="menu-link" href={href} target={target}>
+        {label}
+      </a>
+    </li>
+  );
+}
+```
+
+```bash
+npx create-react-app rq04-menu-default --template rq04-menu-default
+```
+
+`4.1.4 Pass-through properties`
+
+the rest syntax, denoted by three periods, to specify an object, that will be assigned all the "left-over" properties not already assigned:
+
+```javascript
+const someObject = { a: 1, b: 2, c: 3, d: 4 };
+const { a, b, ...otherAttrs } = someObject;
+// const a = 1;
+// const b = 2
+// const otherAttrs = { c: 3, d: 4 };
+```
+
+Remember to wrap the spread inside brackets, otherwise, it will not work.
+```javascript
+const extraProps = { target: "_blank", id: "link" }
+return <a href="/blog/" {...extraProps} />
+```
+
+``` {#lst-x .javascript lst-cap="Menu items with rest and spread"}
+function MenuItem({ label, href, ...rest }) {
+  return (
+    <li className="menu-item">
+      <a className="menu-link" href={href} {...rest}>
+        {label}
+      </a>
+    </li>
+  );
+}
+```
+
+```bash
+npx create-react-app rq04-menu-rest --template rq04-menu-rest
+```
+
+`4.2 A comparison of component types`
+
+In general, using functional components is more elegant, more succinct, and most importantly, far easier to understand. 
+
+`4.2.1 Benefits of functional components`
+
+Compactness, Readability, Purity, Simplicity, Testability, Popularity
+
+`4.2.2 Disadvantages of functional components`
+
+None
+
+`4.2.3 Non-differences between component types`
+
+`4.2.4 Choosing component type`
+
+Use functional components.
+
+`4.3 When not to use a functional component`
+
+`4.3.1 Error boundary`
+
+`getDerivedStateFromError`, `componentDidCatch`
+
+`4.3.2 Codebase is class-based`
+
+Not read
+
+`4.3.3 Library requires class-based components`
+
+Not read
+
+`4.3.4 Snapshot before updating`
+
+`4.4 Conversion from a class-based to a functional component`
+
+`4.4.1 Version 1: Render only`
+
+```bash
+npx create-react-app rq04-gallery-class-v1 --template rq04-gallery-class-v1
+```
+
+```bash
+npx create-react-app rq04-gallery-func-v1 --template rq04-gallery-function-v1
+```
+
+`4.4.2 Version 2: Class method as utility`
+TODO
