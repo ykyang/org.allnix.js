@@ -218,7 +218,7 @@ Notice `{" "}` at the end of lines.
 
 ## 4 Functional components
 
-[Chpater 4 source code](https://reactquickly.dev/browse/ch04){target=_blank}
+[Chpater 4 source code](https://rq2e.com/ch04){target=_blank}
 
 the functional part refers to the component definition itself being a JavaScript function rather than a JavaScript class.
 
@@ -363,4 +363,166 @@ npx create-react-app rq04-gallery-func-v1 --template rq04-gallery-function-v1
 ```
 
 `4.4.2 Version 2: Class method as utility`
+
+pure method
+
+```bash
+npx create-react-app rq04-gallery-func-v2 --template rq04-gallery-function-v2
+```
+
+`4.4.3 Version 3: Real class method`
+
+```bash
+npx create-react-app rq04-gallery-class-v3 --template rq04-gallery-class-v3
+```
+
+```bash
+npx create-react-app rq04-gallery-func-v3 --template rq04-gallery-function-v3
+```
+
+`4.4.4 Version 4: Constructor`
+
+```bash
+npx create-react-app rq04-gallery-class-v4 --template rq04-gallery-class-v4
+```
+
+`4.4.5 More complexity = harder conversion`
+
+## 5 Making React interactive with states
+
+stateless component, stateful component
+
+[Chpater 5 source code](https://rq2e.com/ch05){target=_blank}
+
+`5.1 Why is React state relevant?`
+
+`5.1.1 React component state`
+
+`5.1.2 Where should I put state?`
+
+`5.1.3 What kind of information do you store in component state?`
+
+* Application data,
+  
+global, mounting and unmounting, `Context`, `Redux`, `react -query`
+
+* UI state,
+
+local
+
+* Form data.
+
+local
+
+`5.1.4 What not to store in state`
+
+`5.2 Adding state to a functional component`
+
+`useState` takes an initial value and returns the current state and an update function.
+
+`useState` is a hook.
+
+```bash
+npx create-react-app rq05-functional-counter --template rq05-functional-counter
+```
+
+```{#lst-5.1 .javascript lst-cap="Listing 5.1 A fully functional counter"}
+import { useState } from "react";
+function Counter() {
+  const [counter, setCounter] = useState(0);
+  return (
+    <main>
+      <p>Clicks: {counter}</p>
+      <button onClick={() => setCounter((value) => value + 1)}>
+        Increment
+      </button>
+    </main>
+  );
+}
+function App() {
+  return <Counter />;
+}
+export default App;
+```
+
+`5.2.1 Importing and using a hook`
+
+any function that starts with the word `use*` is a Hook
+
+:::{.callout-note}
+Rules of hooks
+
+When you use a hook in a component, you must always use that hook. And you must use the exact same hooks in the exact same order every time you render the component.
+:::
+
+`5.2.2 Initializing the state`
+
+```bash
+npx create-react-app rq05-triple-counter --template rq05-triple-counter
+```
+
+
+`generatePassword()` will actually be called on every render
+```javascript
+function Password() {
+  const [password, setPassword] = useState(generatePassword());
+  
+}
+```
+
+the initial value can instead be a function that returns the initial value
+```javascript
+const [password, setPassword] = useState(generatePassword);
+```
+or
+```javascript
+const [password, setPassword] = useState(() => generatePassword());
+```
+
+```javascript
+const OPERATORS = {
+  ADDITION: (a, b) => a + b,
+  SUBTRACTION: (a, b) => a - b,
+  PRODUCT: (a, b) => a * b,
+};
+function Calculator() {
+  const [operator, setOperator] = useState(() => OPERATORS.ADDITION);
+}
+```
+
+`5.2.3 Destructuring the state value and setter`
+
+`5.2.4 Using the state value`
+
+you can use multiple states rather than cram all your states into a single value
+
+`5.2.5 Setting the state`
+
+```bash
+npx create-react-app rq05-accordion --template rq05-accordion
+```
+
+```bash
+npx create-react-app rq05-calculator --template rq05-calculator
+```
+
+```bash
+px create-react-app rq05-reset-counter --template rq05-reset-counter
+```
+
+Browser plugin `React Developer Tools`
+
+`State must be set to a new value`
+
+```bash
+npx create-react-app rq05-proper-todo --template rq05-proper-todo
+```
+
+`5.2.6 Use multiple states`
+
+```bash
+npx create-react-app rq05-filter-todo --template rq05-filter-todo
+```
+
+`5.2.7 State scope`
 TODO
