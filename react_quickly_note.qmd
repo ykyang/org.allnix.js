@@ -525,4 +525,7 @@ npx create-react-app rq05-filter-todo --template rq05-filter-todo
 ```
 
 `5.2.7 State scope`
-TODO
+
+```bash
+npx create-react-app rq05-nice-todo --template rq05-nice-todo
+```
